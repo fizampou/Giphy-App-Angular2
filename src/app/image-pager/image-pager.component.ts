@@ -10,11 +10,10 @@ import { Gif } from '../gif';
   styleUrls: ['./image-pager.component.scss']
 })
 export class ImagePagerComponent implements OnInit {
-  imageFetcherService: ImageFetcherService;
-  errorMessage: String;
-  isError: Boolean;
-  giphies: Observable<Gif[]>;
-  gifs: Gif[];
+  private imageFetcherService: ImageFetcherService;
+  private errorMessage: String;
+  private giphies: Observable<Gif[]>;
+  private gifs: Gif[];
   private _searchTerm = new BehaviorSubject<String>('');
 
   @Input()
@@ -29,7 +28,6 @@ export class ImagePagerComponent implements OnInit {
   constructor(imageFetcherService: ImageFetcherService) {
     this.imageFetcherService = imageFetcherService;
     this.gifs = [];
-    this.isError = false;
     this.errorMessage = '';
   }
 
@@ -40,17 +38,7 @@ export class ImagePagerComponent implements OnInit {
   getGifs() {
     this.giphies = this.imageFetcherService.getGifs(this.searchTerm);
     this.giphies.subscribe(
-      gifs => {
-          if (gifs.length === 0) {
-              this.isError = true;
-              return;
-          }
-          this.gifs = gifs;
-          this.isError = false;
-      },
-      error => {
-          this.errorMessage = error;
-          this.isError = true;
-    });
+      gifs => this.gifs = gifs,
+      error => this.errorMessage = error);
   }
 }
