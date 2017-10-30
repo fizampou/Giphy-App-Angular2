@@ -22,20 +22,15 @@
       width:100%;
       padding: 0.5em;
       font-size: 1em;
-    }
-    
-    &.error {
-      ::-webkit-input-placeholder { 
-          color: red;
-      }
       
-      input { 
-        color: red;
+      &.error {
+        border: 2px solid red;
       }
     }
     
     button {
       padding: 0.5em 1em;
+      margin-top: 1em;
       flex-grow: 1;
       background: orange;
       color: white;

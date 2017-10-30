@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:100');
+
 body,
 html {
-  background-color:#3aa;
-  color: white;
+  background: #FC5C7D;
+  background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
+  background: linear-gradient(to right, #6A82FB, #FC5C7D);
+  font-family: 'Saira Semi Condensed', sans-serif;
 }

@@ -2,9 +2,31 @@
     width: 100%;
     align-content: center;
     text-align: center;
+    margin: 2rem 0;
 
-    img {
-        max-width: 100%;
-        min-width: 100%;
+    .description {
+        background: black;
+        color: white;
+        text-align: center;        
+        opacity: 0.9;
+        height: 5rem;
+        width: 100%;
+        padding-top: 2.5rem;
+    }
+
+    .image {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+            max-width: 100%;
+            min-width: 100%;
+            transition: all 0.3s;
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+        }
     }
 }

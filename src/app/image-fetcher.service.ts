@@ -21,13 +21,9 @@ export class ImageFetcherService {
   getGifs(searchTerm): Observable<Gif[]> {
     const apiLink = this.link + searchTerm;
 
-    if (apiLink === this.link) {
-      this.handleError(this.error);
-    }
-
     return this.http.get(apiLink)
-        .map(this.extractGifs)
-        .catch(this.handleError);
+        .map(this.extractGifs.bind(this))
+        .catch((error) => this.handleError(error.message));
   }
 
   private extractGifs(res: Response) {
@@ -46,9 +42,8 @@ export class ImageFetcherService {
     return gifs;
   }
 
-  private handleError (error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.message || error);
+  private handleError (error: String) {
+    return Observable.throw(error);
   }
 }
 
