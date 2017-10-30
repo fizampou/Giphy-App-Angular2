@@ -10,17 +10,19 @@ import 'rxjs/add/observable/throw';
 export class ImageFetcherService {
   http: Http;
   link: String;
+  error: String;
 
   constructor(http: Http) {
     this.http = http;
     this.link = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=';
+    this.error = 'set your search term';
   }
 
   getGifs(searchTerm): Observable<Gif[]> {
     const apiLink = this.link + searchTerm;
 
     if (apiLink === this.link) {
-      this.handleError('set your search term');
+      this.handleError(this.error);
     }
 
     return this.http.get(apiLink)

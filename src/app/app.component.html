@@ -5,7 +5,7 @@
     <button class="btn" (click)="performSearch(searchTerm)">Search</button>
     <br>
     <div *ngFor="let g of gifs">
-      <img src="{{g.image}}">
+        <app-gif-details [gif]="g"></app-gif-details>        
     </div>
   </div>
 </div>
