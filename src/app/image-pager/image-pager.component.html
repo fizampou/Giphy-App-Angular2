@@ -1,0 +1,7 @@
+<div class="image-pager">
+    <div class="error-field" *ngIf="isError && errorMessage.length>0">{{errorMessage}}</div>
+    <div *ngFor="let g of gifs">
+        <app-gif-details [gif]="g"></app-gif-details>        
+    </div>
+    <div class="pager"></div>
+</div>

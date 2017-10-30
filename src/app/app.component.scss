@@ -9,6 +9,7 @@
   .main {
     display: flex;
     flex-direction: column;
+    padding-bottom: 2.5rem;
 
     h1 {
       text-align: center;
@@ -42,13 +43,5 @@
         background: #ee7600;
       }
     }
-  }
-  
-  .error-field {
-    color: white;
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 1rem;
-    font-family: Helvetica, Arial, Sans-Serif;
   }
 }
