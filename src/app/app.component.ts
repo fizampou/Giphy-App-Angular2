@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { ImageFetcherService } from './image-fetcher.service';
+import { Observable } from 'rxjs/Observable';
+import { Gif } from './gif';
 
 @Component({
     selector: 'app-root',
@@ -9,25 +11,19 @@ import { Http, Response } from '@angular/http';
 
 export class AppComponent {
     title: String;
-    link: String;
-    http: Http;
-    giphies: String[];
+    giphies: Observable<Gif[]>;
+    gifs: Gif[];
+    imageFetcherService: ImageFetcherService;
 
-    constructor(http: Http) {
+    constructor(imageFetcherService: ImageFetcherService) {
       this.title = 'The gify app';
-      this.link = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=';
-      this.http = http;
-      this.giphies = [];
+      this.imageFetcherService = imageFetcherService;
+      this.gifs = [];
     }
 
     performSearch(searchTerm: HTMLInputElement): void {
-      // TODO add some checks
-      const apiLink = this.link + searchTerm.value;
-
-      this.http.request(apiLink)
-          .subscribe((res: Response) => {
-                this.giphies = res.json().data;
-                console.log(this.giphies);
-          });
+        this.giphies = this.imageFetcherService.getGifs(searchTerm.value);
+        this.giphies.subscribe(
+            gifs => this.gifs = gifs);
     }
 }
