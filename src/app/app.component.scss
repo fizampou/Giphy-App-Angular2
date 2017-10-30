@@ -1,10 +1,10 @@
 .container {
-  width: 600px;
+  max-width: 45rem;
   font-size: 20px;
   background: #333;
-  margin: 0 auto 10px;
-  padding: 15px 10px;
-  -webkit-border-radius: 6px;
+  margin: 0 auto 1rem;
+  padding: 0.5rem 1rem;
+  -webkit-border-radius: 1rem;
 
   .main {
     display: flex;
@@ -16,26 +16,26 @@
     }
       
     input {
-      border: 2px solid #ddd;
+      border: 0.5rem solid #ddd;
       background-color: #ddd;
       box-sizing: border-box;
       width:100%;
-      padding: 0.5em;
-      font-size: 1em;
+      padding: 0.5rem;
+      font-size: 1rem;
       
       &.error {
-        border: 2px solid red;
+        border: 0.5rem solid red;
       }
     }
     
     button {
-      padding: 0.5em 1em;
-      margin-top: 1em;
+      padding: 1rem 1rem;
+      margin-top: 1rem;
       flex-grow: 1;
       background: orange;
       color: white;
       border: none;
-      font-size: 1em;
+      font-size: 1rem;
       
       &:hover,
       &:focus {
