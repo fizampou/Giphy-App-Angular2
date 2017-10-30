@@ -5,4 +5,29 @@
         text-align: center;
         margin-top: 1rem;
     }
+
+    .pager {
+        .prev-next-button {
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: orange;
+            border: none;
+            font-size: 15px;
+            color: white;
+            transform: translateY(-50%);
+
+            &:hover {
+                background: #ee7600;
+            }
+          }
+          
+          .previous { 
+              left: 10px; 
+            }
+          .next { 
+              right: 10px; 
+            }
+    }
 }

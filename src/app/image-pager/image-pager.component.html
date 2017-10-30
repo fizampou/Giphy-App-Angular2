@@ -3,5 +3,8 @@
     <div *ngFor="let g of gifs">
         <app-gif-details [gif]="g"></app-gif-details>        
     </div>
-    <div class="pager"></div>
+    <div class="pager" *ngIf="gifs.length>=25">
+        <button class="prev-next-button previous">&larr;</button>
+        <button class="prev-next-button next">&rarr;</button>
+    </div>
 </div>
