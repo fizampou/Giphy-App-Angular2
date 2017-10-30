@@ -11,6 +11,7 @@ import { Gif } from './gif';
 
 export class AppComponent {
     title: String;
+    errorMessage: String;
     giphies: Observable<Gif[]>;
     gifs: Gif[];
     imageFetcherService: ImageFetcherService;
@@ -24,6 +25,7 @@ export class AppComponent {
     performSearch(searchTerm: HTMLInputElement): void {
         this.giphies = this.imageFetcherService.getGifs(searchTerm.value);
         this.giphies.subscribe(
-            gifs => this.gifs = gifs);
+            gifs => this.gifs = gifs,
+            error => this.errorMessage = <any>error);
     }
 }

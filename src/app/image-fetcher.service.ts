@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Gif } from './gif';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ImageFetcherService {
@@ -16,25 +17,36 @@ export class ImageFetcherService {
   }
 
   getGifs(searchTerm): Observable<Gif[]> {
-
     const apiLink = this.link + searchTerm;
 
+    if (apiLink === this.link) {
+      this.handleError('set your search term');
+    }
+
     return this.http.get(apiLink)
-        .map((res: Response) => {
-          const data = res.json().data;
-          const gifs = [];
+        .map(this.extractGifs)
+        .catch(this.handleError);
+  }
 
-          data.forEach(element => {
-            const gif = new Gif();
+  private extractGifs(res: Response) {
+    const data = res.json().data;
+    const gifs = [];
 
-            gif.image = element.images.original.url;
-            gif.description = element.title;
+    data.forEach(element => {
+      const gif = new Gif();
 
-            gifs.push(gif);
-          });
+      gif.image = element.images.original.url;
+      gif.description = element.title;
 
-          return gifs;
+      gifs.push(gif);
     });
+
+    return gifs;
+  }
+
+  private handleError (error: Response | any) {
+    console.error(error.message || error);
+    return Observable.throw(error.message || error);
   }
 }
 
