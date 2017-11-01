@@ -7,6 +7,8 @@
     }
 
     .pager {
+        float: right;
+
         .prev-next-button {
             top: 50%;
             width: 30px;
@@ -21,13 +23,13 @@
             &:hover {
                 background: #ee7600;
             }
-          }
-          
-          .previous { 
-              left: 10px; 
-            }
-          .next { 
-              right: 10px; 
-            }
+        }
+        
+        .previous { 
+            left: 10px; 
+        }
+        .next { 
+            right: 10px; 
+        }
     }
 }

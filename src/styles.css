@@ -7,3 +7,7 @@ html {
   background: linear-gradient(to right, #6A82FB, #FC5C7D);
   font-family: 'Saira Semi Condensed', sans-serif;
 }
+
+button:focus {
+  outline:0;
+}

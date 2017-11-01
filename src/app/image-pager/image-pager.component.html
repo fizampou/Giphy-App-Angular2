@@ -1,10 +1,10 @@
 <div class="image-pager">
+    <div class="pager" *ngIf="gifs.length>=25">
+        <button class="prev-next-button previous" *ngIf="imageCounter>=25" (click)="fetchPrevious()">&larr;</button>
+        <button class="prev-next-button next" (click)="fetchNext()">&rarr;</button>
+    </div>
     <div class="error-field" *ngIf="isError && errorMessage.length>0">{{errorMessage}}</div>
     <div *ngFor="let g of gifs">
         <app-gif-details [gif]="g"></app-gif-details>        
-    </div>
-    <div class="pager" *ngIf="gifs.length>=25">
-        <button class="prev-next-button previous">&larr;</button>
-        <button class="prev-next-button next">&rarr;</button>
     </div>
 </div>

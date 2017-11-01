@@ -18,8 +18,8 @@ export class ImageFetcherService {
     this.error = 'set your search term';
   }
 
-  getGifs(searchTerm): Observable<Gif[]> {
-    const apiLink = this.link + searchTerm;
+  getGifs(searchTerm: string, counter: number): Observable<Gif[]> {
+    const apiLink = this.link + searchTerm + '&offset=' + counter;
 
     return this.http.get(apiLink)
         .map(this.extractGifs.bind(this))
