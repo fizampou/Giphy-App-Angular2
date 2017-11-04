@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    title: String;
-    inputValue: String;
+    public title: String;
+    public inputValue: String;
 
     constructor() {
       this.title = 'Giphy';
       this.inputValue = '';
     }
 
-    performSearch(searchTerm: HTMLInputElement): void {
+    public performSearch(searchTerm: HTMLInputElement): void {
         this.inputValue = searchTerm.value;
     }
 }
