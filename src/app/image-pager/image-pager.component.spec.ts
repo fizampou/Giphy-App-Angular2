@@ -3,7 +3,6 @@ import { ImagePagerComponent } from './image-pager.component';
 import { ImageFetcherServiceMock } from '../image-fetcher-mock.service';
 import { ImageFetcherService } from '../image-fetcher.service';
 import { GifDetailsComponent } from '../gif-details/gif-details.component';
-import { Observable } from 'rxjs/Observable';
 
 describe('ImagePagerComponent', () => {
   let component: ImagePagerComponent;

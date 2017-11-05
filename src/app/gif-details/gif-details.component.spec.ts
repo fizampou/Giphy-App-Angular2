@@ -19,7 +19,7 @@ describe('GifDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create gif details component', () => {
     expect(component).toBeTruthy();
   });
 });
