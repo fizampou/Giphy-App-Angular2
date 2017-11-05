@@ -18,7 +18,7 @@ export class ImageFetcherService {
     this.error = 'set your search term';
   }
 
-  getGifs(searchTerm: string, counter: number): Observable<Gif[]> {
+  public getGifs(searchTerm: string, counter: number): Observable<Gif[]> {
     const apiLink = this.link + searchTerm + '&offset=' + counter;
 
     return this.http.get(apiLink)

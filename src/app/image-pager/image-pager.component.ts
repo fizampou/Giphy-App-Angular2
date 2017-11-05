@@ -13,7 +13,7 @@ export class ImagePagerComponent implements OnInit {
   private imageFetcherService: ImageFetcherService;
   private errorMessage: String;
   private giphies: Observable<Gif[]>;
-  private gifs: Gif[];
+  public gifs: Gif[];
   private _searchTerm = new BehaviorSubject<string>('');
   private imageCounter: number;
 
@@ -33,7 +33,7 @@ export class ImagePagerComponent implements OnInit {
     this.imageCounter = 0;
   }
 
-  calculateCounter(key) {
+  private calculateCounter(key) {
     switch (key) {
       case 'increase':
         return this.imageCounter += 25;
@@ -44,26 +44,29 @@ export class ImagePagerComponent implements OnInit {
     }
   }
 
-  fetchNext() {
+  public fetchNext() {
     this.fetchGifs(this.searchTerm, this.calculateCounter('increase'));
   }
 
-  fetchPrevious() {
+  public fetchPrevious() {
     this.fetchGifs(this.searchTerm, this.calculateCounter('decrease'));
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this._searchTerm.subscribe(() => this.getGifs());
   }
 
-  fetchGifs(term: string, counter: number) {
+  private fetchGifs(term: string, counter: number) {
+    if (!term) {
+      return;
+    }
     this.giphies = this.imageFetcherService.getGifs(term, counter);
     this.giphies.subscribe(
       gifs => this.gifs = gifs,
       error => this.errorMessage = error);
   }
 
-  getGifs() {
+  public getGifs() {
     this.fetchGifs(this.searchTerm, this.imageCounter);
   }
 }
