@@ -22,4 +22,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 How it works?
 
-<img src="http://www.giphy.com/gifs/3o6fJ9XPtOzOSwgts4" width="900">
+<img src="https://media.giphy.com/media/26u4hVcVOUM52rvIQ/giphy.gif" width="900">
